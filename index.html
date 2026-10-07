@@ -1,0 +1,83 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Deepslate Draft</title>
+    
+    <!-- Security: Strict CSP. Prevents inline scripts, evals, and cross-site injections -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self';">
+
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#1E2124">
+    <!-- iOS Safari Fallbacks for PWA -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
+
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/viewer.css">
+</head>
+<body>
+    <!-- Offline & Update Banners -->
+    <div id="status-banner" class="banner hidden"></div>
+
+    <!-- Onboarding / About Modal -->
+    <dialog id="onboarding-modal" class="modal panel">
+        <h2 class="pixel-heading text-emerald">Deepslate Draft</h2>
+        <p class="version-text">v1.0.0-alpha</p>
+        <div class="modal-content">
+            <p>Welcome! This app lets you view and generate Minecraft Bedrock structures.</p>
+            <ul>
+                <li>Swipe up/down or use buttons to change layers.</li>
+                <li>Pinch to zoom, drag to pan.</li>
+                <li>Tap a block to see its coordinates & states.</li>
+            </ul>
+        </div>
+        <div class="modal-actions">
+            <button id="btn-theme-toggle" class="btn btn-secondary">Toggle Theme</button>
+            <button id="btn-close-onboarding" class="btn btn-primary">Start Building</button>
+        </div>
+    </dialog>
+
+    <header class="app-header panel">
+        <h1 class="pixel-heading">Blueprint</h1>
+        <div class="header-controls">
+            <button id="btn-about" class="icon-btn" aria-label="About / Settings">ℹ️</button>
+        </div>
+    </header>
+
+    <main class="viewer-container">
+        <!-- The interactive canvas where layers are drawn -->
+        <canvas id="schematic-canvas"></canvas>
+        
+        <!-- UI Overlays over the canvas -->
+        <div class="compass-overlay" id="compass">N</div>
+        <div class="layer-progress panel" id="layer-indicator">Layer 0 of 0</div>
+        
+        <div class="toast-popup hidden" id="block-info-toast"></div>
+    </main>
+
+    <footer class="control-panel panel">
+        <div class="layer-controls">
+            <button id="btn-layer-down" class="btn btn-secondary" aria-label="Previous Layer">⬇️</button>
+            <input type="range" id="layer-slider" min="0" max="0" value="0" aria-label="Jump to Layer">
+            <button id="btn-layer-up" class="btn btn-secondary" aria-label="Next Layer">⬆️</button>
+        </div>
+        
+        <div class="view-toggles">
+            <button id="btn-toggle-grid" class="btn btn-secondary" aria-pressed="true">Grid On</button>
+            <button id="btn-toggle-ghost" class="btn btn-secondary" aria-pressed="true">Ghost On</button>
+            <button id="btn-final-view" class="btn btn-primary text-emerald">3D Preview</button>
+        </div>
+
+        <div class="block-count-summary" id="block-count-panel">
+            <span>Blocks: <strong id="total-blocks">0</strong></span>
+        </div>
+    </footer>
+
+    <!-- App Logic -->
+    <script type="module" src="./js/app.js"></script>
+</body>
+</html>
