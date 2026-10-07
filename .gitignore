@@ -1,0 +1,45 @@
+# --- Minecraft assets: never commit these ---
+# Resource packs and textures belong to Mojang/their authors.
+# The app imports them on-device, so they must not be in the repo.
+*.mcpack
+*.mcaddon
+*.mctemplate
+*.zip
+/resource-packs/
+/textures/
+/test-packs/
+
+# Personal test builds and backups (keep private)
+/private-test-files/
+*.mcstructure.bak
+*-backup.json
+
+# --- Operating system files ---
+.DS_Store
+Thumbs.db
+desktop.ini
+._*
+
+# --- Editor and IDE files ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- Node (only if you ever add tooling) ---
+node_modules/
+npm-debug.log*
+package-lock.json
+
+# --- Secrets and local config ---
+.env
+.env.*
+*.pem
+*.key
+
+# --- Logs and temp files ---
+*.log
+*.tmp
+*.temp
+tmp/
