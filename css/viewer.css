@@ -1,0 +1,55 @@
+/* css/viewer.css */
+.viewer-container {
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--bg-color);
+}
+
+#schematic-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    touch-action: none; /* Crucial: JS handles all touch math */
+}
+
+/* Overlays */
+.compass-overlay, .layer-progress, .toast-popup {
+    position: absolute;
+    pointer-events: none; /* Let clicks pass through to canvas */
+}
+
+.compass-overlay {
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--panel-bg);
+    border: 2px solid var(--redstone);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--text-main);
+}
+
+.layer-progress {
+    top: 16px;
+    left: 16px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.toast-popup {
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--panel-bg);
+    color: var(--text-main);
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--grid-line);
+    transition: opacity 0.3s;
+}
