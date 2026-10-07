@@ -111,4 +111,6 @@ Deepslate Draft is an unofficial fan project. It is **not** affiliated with, end
 
 ## Licence
 
-The code in this repository is released under the [MIT Licence](LICENSE). The licence covers this project's own code and original artwork only. It does not grant any rights to Minecraft or to third-party resource packs you import.
+Deepslate Draft is **not open source**. It is licensed for personal, non-commercial use only. You may use the app on your own devices, but you may not copy, redistribute, host your own version, sell it or present it as your own. Builds and files you create with the app are yours. See [LICENSE](LICENSE) for the full terms.
+
+Copyright (c) 2026 Adenine6956. All rights reserved.
